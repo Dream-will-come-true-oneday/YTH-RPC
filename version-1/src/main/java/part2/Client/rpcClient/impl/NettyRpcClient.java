@@ -37,7 +37,7 @@ public class NettyRpcClient implements RpcClient {
             // channel 表示一个连接的单位，类似socket
             Channel channel = channelFuture.channel();
 
-            channel.write(request);
+            channel.writeAndFlush(request);
             // sync()堵塞获取结果
             channel.closeFuture().sync();
             // 阻塞的获得结果，通过给channel设计别名，获取特定名字下的channel中的内容

@@ -1,8 +1,7 @@
 package part2.Server;
 
 import part2.Server.provider.ServerProvider;
-import part2.Server.server.RpcServer;
-import part2.Server.server.impl.ThreadPoolRPCServer;
+import part2.Server.server.impl.NettyRpcServer;
 import part2.common.service.UserService;
 import part2.common.service.impl.UserServiceImpl;
 
@@ -11,7 +10,7 @@ public class TestServer {
         UserService userService = new UserServiceImpl();
         ServerProvider serverProvider = new ServerProvider();
         serverProvider.provideServerInterface(userService);
-        RpcServer rpcServer = new ThreadPoolRPCServer(serverProvider);
-        rpcServer.start(8888);
+        NettyRpcServer nettyRpcServer = new NettyRpcServer(serverProvider);
+        nettyRpcServer.start(8888);
     }
 }
