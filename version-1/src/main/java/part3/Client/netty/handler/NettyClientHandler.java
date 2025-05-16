@@ -3,7 +3,7 @@ package part3.Client.netty.handler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.AttributeKey;
-import part1.common.Message.RpcResponse;
+import com.Leonardo.RPC.common.Message.RpcResponse;
 
 public class NettyClientHandler  extends SimpleChannelInboundHandler<RpcResponse> {
 

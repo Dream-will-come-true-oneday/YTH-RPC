@@ -3,8 +3,8 @@ package part3.Server.netty.handler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.AllArgsConstructor;
-import part1.common.Message.RpcRequest;
-import part1.common.Message.RpcResponse;
+import com.Leonardo.RPC.common.Message.RpcRequest;
+import com.Leonardo.RPC.common.Message.RpcResponse;
 import part3.Server.provider.ServerProvider;
 
 import java.lang.reflect.InvocationTargetException;
