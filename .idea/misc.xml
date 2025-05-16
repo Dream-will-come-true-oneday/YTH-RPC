@@ -9,6 +9,7 @@
       <list>
         <option value="$PROJECT_DIR$/version-1/pom.xml" />
         <option value="$PROJECT_DIR$/version-2/pom.xml" />
+        <option value="$PROJECT_DIR$/MyRPC/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
