@@ -46,7 +46,7 @@ public class NettyRpcClient implements RpcClient {
             // 与服务端建立连接并发送请求
             /*
             * bootstrap.connect(host, port) 会异步发起与服务器的连接请求
-            * ，返回的 ChannelFuture 代表这个连接操作的“未来结果”。
+            * 返回的 ChannelFuture 代表这个连接操作的“未来结果”。
             * */
             ChannelFuture channelFuture = bootstrap.connect(serviceAddress.getAddress(), serviceAddress.getPort()).sync();
             Channel channel = channelFuture.channel();

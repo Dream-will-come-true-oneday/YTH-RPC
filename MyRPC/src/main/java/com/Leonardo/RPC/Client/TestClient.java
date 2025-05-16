@@ -13,7 +13,7 @@ import com.Leonardo.RPC.common.service.UserService;
  */
 
 public class TestClient {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ClientProxy clientProxy=new ClientProxy();
         //ClientProxy clientProxy=new part2.Client.proxy.ClientProxy("127.0.0.1",9999,0);
         UserService proxy=clientProxy.getProxy(UserService.class);
