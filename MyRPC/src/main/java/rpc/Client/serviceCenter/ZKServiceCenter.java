@@ -6,6 +6,7 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import rpc.Client.cache.serviceCache;
 import rpc.Client.serviceCenter.ZkWatcher.watchZK;
+import rpc.Client.serviceCenter.balance.ConsistencyHashBalance;
 
 import java.net.InetSocketAddress;
 import java.util.List;
@@ -49,13 +50,13 @@ public class ZKServiceCenter implements ServiceCenter{
             //先从本地缓存中找
             List<String> serviceList=cache.getServcieFromCache(serviceName);
             //如果找不到，再去zookeeper中找
-            //这种i情况基本不会发生，或者说只会出现在初始化阶段
+            //这种情况基本不会发生，或者说只会出现在初始化阶段
             if(serviceList==null) {
                 serviceList=client.getChildren().forPath("/" + serviceName);
             }
             // 这里默认用的第一个，后面加负载均衡
-            String string = serviceList.get(0);
-            return parseAddress(string);
+            String address = new ConsistencyHashBalance().balance(serviceList);
+            return parseAddress(address);
         } catch (Exception e) {
             e.printStackTrace();
         }
