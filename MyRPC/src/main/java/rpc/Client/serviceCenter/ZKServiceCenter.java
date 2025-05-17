@@ -49,7 +49,7 @@ public class ZKServiceCenter implements ServiceCenter{
             //先从本地缓存中找
             List<String> serviceList=cache.getServcieFromCache(serviceName);
             //如果找不到，再去zookeeper中找
-            //这种i情况基本不会发生，或者说只会出现在初始化阶段
+            //这种情况基本不会发生，或者说只会出现在初始化阶段
             if(serviceList==null) {
                 serviceList=client.getChildren().forPath("/" + serviceName);
             }
